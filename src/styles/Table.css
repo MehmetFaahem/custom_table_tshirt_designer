@@ -1,0 +1,150 @@
+.table-container {
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  
+  .table-header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .search-wrapper {
+    position: relative;
+    width: 300px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px 12px;
+    padding-right: 32px; /* Space for clear button */
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #646cff;
+    box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+  }
+  
+  .clear-search {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .clear-search:hover {
+    color: #fff;
+    background-color: #444;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+  }
+  
+  .custom-table th {
+    background-color: #2d2d2d;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .custom-table th:hover {
+    background-color: #3d3d3d;
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #2d2d2d;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .items-per-page select {
+    margin-left: 8px;
+    padding: 4px 8px;
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .page-controls button {
+    padding: 4px 8px;
+    margin: 0 4px;
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .page-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .page-controls button:hover:not(:disabled) {
+    background-color: #444;
+  }
+  
+  .sort-icon {
+    margin-left: 8px;
+    font-size: 0.8em;
+    opacity: 0.7;
+  }
+  
+  .custom-table tr.selected {
+    background-color: rgba(100, 108, 255, 0.1);
+  }
+  
+  .custom-table tr.selected:hover {
+    background-color: rgba(100, 108, 255, 0.2);
+  }
+  
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  input[type="checkbox"] {
+    accent-color: #646cff;
+  }
+  
+  .custom-table td:first-child,
+  .custom-table th:first-child {
+    text-align: center;
+    width: 40px;
+  }
