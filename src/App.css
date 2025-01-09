@@ -1,8 +1,9 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -44,7 +45,9 @@
 .App {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tab-container {
@@ -86,8 +89,72 @@
   
 }
 
-.task-container h2 {
+  .task-container h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .task-container h3 {
+    color: #ffafaf;
+  }
+
+@media (max-width: 1024px) {
+  #root {
+    padding: 0.5rem;
+  }
+
+  .App {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .tab-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab-button {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0.25rem;
+  }
+
+  .App {
+    padding: 8px;
+  }
+
+  .tab-container {
+    gap: 5px;
+  }
+
+  .tab-button {
+    min-width: 100px;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+.loading {
   color: #ffffff;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.task-container h3 {
+  color: #ffafaf;
+  padding: 10px;
+  margin: 10px 0;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 4px;
 }

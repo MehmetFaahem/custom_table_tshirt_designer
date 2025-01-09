@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from './components/Table';
 import TshirtDesigner from './components/TshirtDesigner';
 import './App.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState<'task1' | 'task2'>('task1');
+  const [dataStatus, setDataStatus] = useState<'loading' | 'error' | 'success'>('loading');
+
+  useEffect(() => {
+    const checkData = async () => {
+      try {
+        setDataStatus('loading');
+        const response = await fetch('https://api.razzakfashion.com');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setDataStatus(data && data.length > 0 ? 'success' : 'error');
+      } catch (error) {
+        setDataStatus('error');
+      }
+    };
+    
+    if (activeTab === 'task1') {
+      checkData();
+    }
+  }, [activeTab]);
 
   return (
     <div className="App">
@@ -26,8 +47,15 @@ function App() {
       <div className="tab-content">
         {activeTab === 'task1' ? (
           <div className="task-container">
+            {dataStatus === 'error' && (
+              <h3>If data is not loading, please disable cors in browser using chrome://extensions/ and reload the page</h3>
+            )}
             <h2>Task 1: Data Table</h2>
-            <Table />
+            {dataStatus === 'loading' ? (
+              <div className="loading">Loading...</div>
+            ) : (
+              <Table />
+            )}
           </div>
         ) : (
           <div className="task-container">

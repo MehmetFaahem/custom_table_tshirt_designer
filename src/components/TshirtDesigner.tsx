@@ -79,68 +79,78 @@ const TshirtDesigner: React.FC = () => {
   }, []);
 
   return (
-    <div className="tshirt-designer">
-      <div 
-        className="tshirt-container" 
-        ref={tshirtContainerRef}
-        onDragOver={handleDragOver}
-        onDrop={handleDrop}
-      >
-        <img 
-          src={TshirtMockup}
-          alt="T-shirt template" 
-          className="tshirt-image" 
-        />
-        
-        {logo && (
-          <Draggable 
-            bounds="parent"
-            position={logoPosition}
-            onStop={handleDragStop}
-            defaultPosition={{ x: 200, y: 200 }}
-          >
-            <div className="logo-container">
-              <img
-                src={logo}
-                alt="Uploaded logo"
-                className="logo-image"
-                style={{
-                  width: `${logoSize.width}px`,
-                  height: `${logoSize.height}px`,
-                }}
-              />
-            </div>
-          </Draggable>
-        )}
+    <div className="designer-layout">
+      <div className="designer-left-panel">
+        <div 
+          className="tshirt-container" 
+          ref={tshirtContainerRef}
+          onDragOver={handleDragOver}
+          onDrop={handleDrop}
+        >
+          <img 
+            src={TshirtMockup}
+            alt="T-shirt template" 
+            className="tshirt-image" 
+          />
+          
+          {logo && (
+            <Draggable 
+              bounds="parent"
+              position={logoPosition}
+              onStop={handleDragStop}
+              defaultPosition={{ x: 200, y: 200 }}
+            >
+              <div className="logo-container">
+                <img
+                  src={logo}
+                  alt="Uploaded logo"
+                  className="logo-image"
+                  style={{
+                    width: `${logoSize.width}px`,
+                    height: `${logoSize.height}px`,
+                  }}
+                />
+              </div>
+            </Draggable>
+          )}
+        </div>
       </div>
 
-      <div className="controls">
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleLogoUpload}
-          ref={fileInputRef}
-          className="file-input"
-        />
+      <div className="designer-right-panel">
+        <div className="control-section">
+          <h3>Upload Logo</h3>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleLogoUpload}
+            ref={fileInputRef}
+            className="file-input"
+          />
+        </div>
         
         {logo && (
           <>
-            <div className="size-control">
-              <label>Logo Size:</label>
-              <input
-                type="range"
-                min="50"
-                max="200"
-                value={logoSize.width}
-                onChange={handleResize}
-              />
+            <div className="control-section">
+              <h3>Adjust Size</h3>
+              <div className="size-control">
+                <input
+                  type="range"
+                  min="50"
+                  max="200"
+                  value={logoSize.width}
+                  onChange={handleResize}
+                />
+              </div>
             </div>
-            <button 
-              className="download-button"
-              onClick={downloadDesign}
-            >
-              Download Design
-            </button>
+
+            <div className="control-section">
+              <button 
+                className="submit-button"
+                onClick={downloadDesign}
+              >
+                Download Design
+              </button>
+            </div>
           </>
         )}
       </div>
